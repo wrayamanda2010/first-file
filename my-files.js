@@ -17,8 +17,11 @@ fs.readFile(filename,"utf8", (err, data) => {
   if(err){
     return console.log(red(err))
   }
-  const lines = data.split('\n').filter(x => x.length > 0)
-  
+  const lines = data
+  .split('\n')
+  .filter(x => x.length > 0)
+  .map((el, idx) => `${idx}: ${el}`)
+
   console.log(lines)
 
 })
